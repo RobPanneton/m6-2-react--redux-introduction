@@ -16,7 +16,7 @@ const CartItem = ({ id, title, price, quantity, calcTotal }) => {
       <BottomSection>
         <Quantity>Quantity:</Quantity>
         <QuantitySelect
-          placeholder={quantity}
+          placeholder={quantity ? quantity : 0}
           onChange={(e) => {
             dispatch(setQuantity(id, e.target.value));
           }}

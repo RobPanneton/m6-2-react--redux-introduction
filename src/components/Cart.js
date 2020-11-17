@@ -2,14 +2,11 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import CartItem from "./CartItem";
 import { useSelector } from "react-redux";
-import { getStoreItemArray } from "../reducers";
+import { getStoreItemArray, calculateTotal } from "../reducers";
 
 const Cart = () => {
   const storeItems = useSelector(getStoreItemArray);
-
-  useEffect(() => {
-    console.log(storeItems);
-  });
+  const total = useSelector(calculateTotal);
 
   return (
     <Wrapper>
@@ -33,7 +30,8 @@ const Cart = () => {
       <TotalAndPurchase>
         <PriceInfo>
           <Total>Total: </Total>
-          <Price>$12.34</Price>
+          {(!total || total === 0) && <Price>$0</Price>}
+          {total > 0 && <Price>${total / 100}</Price>}
         </PriceInfo>
         <Purchase>Purchase</Purchase>
       </TotalAndPurchase>

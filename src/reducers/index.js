@@ -23,7 +23,7 @@ export const cartReducer = (state = initialState, action) => {
       console.log(quantity);
       return {
         ...state,
-        id: {
+        [action.payload.item]: {
           ...state[action.payload.item],
           quantity: parseInt(action.payload.newQuantity),
         },
@@ -39,3 +39,12 @@ export const cartReducer = (state = initialState, action) => {
 };
 
 export const getStoreItemArray = (state) => Object.values(state);
+
+export const calculateTotal = (state) => {
+  let sum = 0;
+  Object.values(state).forEach((item) => {
+    sum += item.price * item.quantity;
+  });
+  if (!sum) return 0;
+  return sum;
+};

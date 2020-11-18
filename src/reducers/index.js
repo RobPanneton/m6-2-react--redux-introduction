@@ -1,5 +1,3 @@
-import React from "react";
-
 const initialState = {};
 
 export const cartReducer = (state = initialState, action) => {
@@ -15,12 +13,6 @@ export const cartReducer = (state = initialState, action) => {
       };
 
     case "SET_QUANTITY":
-      console.log(action.payload);
-      console.log(action.payload.newQuantity);
-
-      const id = state[action.payload.item].id;
-      const quantity = parseInt(action.payload.newQuantity);
-      console.log(quantity);
       return {
         ...state,
         [action.payload.item]: {

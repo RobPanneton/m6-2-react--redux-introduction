@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 
 import { removeItem, setQuantity } from "../actions";
 
-const CartItem = ({ id, title, price, quantity, calcTotal }) => {
+const CartItem = ({ id, title, quantity }) => {
   const dispatch = useDispatch();
 
   return (

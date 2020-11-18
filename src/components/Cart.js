@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import CartItem from "./CartItem";
 import { useSelector } from "react-redux";
@@ -12,8 +12,6 @@ const Cart = () => {
     <Wrapper>
       <HeaderText>
         <YourCart>Your Cart</YourCart>
-        {1 === 2 && <NumItems>Item</NumItems>}
-        {1 === 3 && <NumItems>Item</NumItems>}
       </HeaderText>
       {storeItems &&
         storeItems.map((item) => {
@@ -22,7 +20,7 @@ const Cart = () => {
               id={item.id}
               title={item.title}
               price={item.price}
-              quantity={item.quantity}
+              key={`${item.id}-${item.price}`}
             />
           );
         })}
@@ -53,8 +51,6 @@ const HeaderText = styled.div`
 const YourCart = styled.h1`
   margin: 0;
 `;
-
-const NumItems = styled.p``;
 
 const TotalAndPurchase = styled.div`
   padding: 0 24px;

@@ -7,6 +7,7 @@ import { removeItem, setQuantity } from "../actions";
 const CartItem = ({ id, title, quantity }) => {
   const dispatch = useDispatch();
 
+  console.log(quantity);
   return (
     <Wrapper>
       <TopSection>

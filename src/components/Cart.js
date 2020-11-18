@@ -20,6 +20,7 @@ const Cart = () => {
               id={item.id}
               title={item.title}
               price={item.price}
+              quantity={item.quantity}
               key={`${item.id}-${item.price}`}
             />
           );
